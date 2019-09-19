@@ -1,0 +1,163 @@
+  <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+*
+{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.outercontainer
+{
+  border: 5px solid #0D40C4;
+  border-radius: 10px;
+  flex-direction: column;
+  padding: 40px;
+  width: 40%;
+  background: #FEE7CD;
+  margin: 60px auto;
+  display: flex;
+  background: #FEE7CD;
+  align-items: center;
+}
+
+.innercontainer
+{
+  display: flex;
+  justify-content: center;
+}
+
+.left
+{
+  text-align: right;
+  padding: 10px;
+  font-family: Arial;
+  font-size: 20px;
+  color: #0D40C4;
+  line-height: 40px;
+}
+
+.right
+{
+  text-align: left;
+  padding: 10px;
+  line-height: 40px;
+}
+
+.register
+{
+  background-color: #0D40C4;
+  width: 100px;
+  height: 30px;
+  color: white;
+  font-size:20px;
+  text-align:center;
+  border-radius: 8px;
+}
+
+.register:hover
+{
+	background-color: #666;
+	transition: 0.3s;
+}
+
+.hint
+{
+  color: #000;
+  font-size:20px;
+  text-align:center;
+}
+
+input::placeholder
+{
+  color: rgb(179, 179, 179);
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="outercontainer">
+
+
+<div class="innercontainer">
+
+<div class="left">
+  First Name<br>
+  Last Name<br>
+  Email Address<br>
+  Notes<br>
+</div>
+
+<div class="right">
+<input type="text" size=20 name="firstName" id="firstName" style="height: 22px; width: 200px; font-size:20px;" placeholder="First Name"><br>
+<input type="text" size=20 name="lastName" id="lastName" style="height: 22px; width: 200px; font-size:20px;" placeholder="Last Name"><br>
+<input type="text" size=20 name="emailAddress" id="emailAddress" style="height: 22px; width: 200px; font-size:20px;" placeholder="Email Address"><br>
+<div style="line-height: 120px;">
+<textarea size=20 id="notes" style="height: 100px; width: 200px; font-size:20px; resize: none; background-color: white; border: 1px solid #ddd; margin: 10px 0 0 0" name="notes"></textarea>
+</div>
+</div>
+
+</div>
+
+
+<div class="register">
+<button type="button" onclick="newElement()" class="register">Register</button>
+</div>
+
+<div class="hint">
+<br>
+<span id="hint">
+Please input the information above.
+</span>
+</div>
+
+
+</div>
+
+
+
+</body>
+<script type="text/javascript">
+	
+function newElement()
+{
+  var firstName = document.getElementById("firstName").value;
+  var lastName = document.getElementById("lastName").value;
+  var emailAddress = document.getElementById("emailAddress").value;
+  var notes = document.getElementById("notes").value;
+
+  if (firstName == "")
+  {
+    document.getElementById("hint").style.color="red"; 
+    document.getElementById("hint").innerText="First Name cannot be empty";
+  }
+  else if (lastName == "")
+  {
+  	document.getElementById("hint").style.color="red"; 
+    document.getElementById("hint").innerText="Last Name cannot be empty";
+  }
+  else if (emailAddress == "")
+  {
+  	document.getElementById("hint").style.color="red"; 
+    document.getElementById("hint").innerText="Email Address cannot be empty";
+  }
+  else if (notes == "")
+  {
+  	document.getElementById("hint").style.color="red"; 
+    document.getElementById("hint").innerText="Notes cannot be empty";
+  }
+  else
+  {
+  	document.getElementById("hint").style.color="green"; 
+    document.getElementById("hint").innerText="Validation successful";
+  }
+}
+
+</script>
+</html>
